@@ -1,8 +1,26 @@
-<h1>About</h1>
-<p>
-<a href="https://railstutorial.jp/">Ruby on Rails Tutorial</a>
-is a <href="https://railstutorial.jp/#ebook">book</a>and 
-to teach web development with
-<a href="https://rubyonrails.org/">Ruby on Rails</a>
-This is the sample app for the tutorial
-</p>
+require "test_helper"
+
+class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+
+  def setup
+    @base_title = "Ruby on Rails Tutorial Sample App"
+  end
+
+  test "should get home" do
+    get static_pages_home_url
+    assert_response :success
+    assert_select "title", "Home | #{@base_title}"
+  end
+
+  test "should get help" do
+    get static_pages_help_url
+    assert_response :success
+    assert_select "title", "Help | #{@base_title}"
+  end
+
+  test "should get about" do
+    get static_pages_about_url
+    assert_response :success
+    assert_select "title", "About | #{@base_title}"
+  end
+end

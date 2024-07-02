@@ -23,6 +23,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'ruby-lsp', require: false
+  gem 'rubocop', require: false
   gem "web-console",         "4.2.0"
   gem "solargraph",          "0.50.0"
   gem "irb",                 "1.10.0"

@@ -41,6 +41,9 @@ group :test do
   gem 'rails-controller-testing', '1.0.5'
   gem 'selenium-webdriver',       '4.8.3'
   gem 'webdrivers',               '5.2.0'
+  group :production do
+  gem 'pg', '1.3.5'
+  end
 end
 
 # Windows ではタイムゾーン情報用の tzinfo-data gem を含める必要があります

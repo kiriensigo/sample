@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
 
-  def hello
-    render html: "hello, world!"
+  def new
+  end
+
+  def create
+    render 'new', status: :unprocessable_entity
+  end
+
+  def destroy
   end
 end

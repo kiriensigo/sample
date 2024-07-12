@@ -11,6 +11,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'users/show'
+    assert is_logged_in?
     assert_not flash.empty?
     assert_match 'Welcome', response.body
   end

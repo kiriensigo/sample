@@ -5,10 +5,14 @@ require "minitest/reporters"
 Minitest::Reporters.use!
 
 class ActiveSupport::TestCase
-  # 指定のワーカー数でテストを並列実行する
-  parallelize(workers: :number_of_processors)
+  # 並列化を無効にする
+  # parallelize(workers: :number_of_processors)
+
+  # 代わりに、単一プロセスでテストを実行する
+  parallelize(workers: 1)
   # test/fixtures/*.ymlのfixtureをすべてセットアップする
   fixtures :all
+  
 
   # テストユーザーがログイン中の場合にtrueを返す
   def is_logged_in?
@@ -19,6 +23,7 @@ class ActiveSupport::TestCase
   def log_in_as(user)
     session[:user_id] = user.id
   end
+  
 end
 
 class ActionDispatch::IntegrationTest

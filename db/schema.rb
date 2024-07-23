@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_22_162634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "reset_digest"
+    t.datetime "reset_sent_at", precision: nil
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

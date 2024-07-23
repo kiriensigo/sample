@@ -1,13 +1,13 @@
-require "test_helper"
+require 'test_helper'
 
 class PasswordResetsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get password_resets_new_url
-    assert_response :success
+  def setup
+    @user = users(:michael)
+    @user.create_reset_digest
   end
 
   test "should get edit" do
-    get password_resets_edit_url
+    get edit_password_reset_path(@user.reset_token, email: @user.email)
     assert_response :success
   end
 end

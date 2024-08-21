@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 ENV['TZ'] = 'UTC'
 
-
 module SampleApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
